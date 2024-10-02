@@ -28,7 +28,7 @@ except ImportError:  # tensorboard not installed
 def run_experiment(
     model_name,
     imagenet_folder=None,
-    tensorboard_folder="/tmp",
+    tensorboard_folder="/home/0324wy/mnist",
     num_samples=None,
     context_manager=None,
 ):
@@ -40,14 +40,16 @@ def run_experiment(
         "torchvision does not provide %s model" % model_name
     )
     if imagenet_folder is None:
+        print("=========imagenet fouder is none!!!===========")
         imagenet_folder = tempfile.gettempdir()
-        download = True
-    else:
-        download = False
+    download = True
+    # else:
+    #     download = False
     if context_manager is None:
         context_manager = NoopContextManager()
 
     # load dataset and model:
+    # TODO
     with context_manager:
         model = getattr(models, model_name)(pretrained=True)
         model.eval()

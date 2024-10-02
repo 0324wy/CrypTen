@@ -102,6 +102,7 @@ def train_encrypted(
             x_train = x_encrypted[start:end]
             x_train.requires_grad = True
             y_one_hot = label_eye[y_encrypted[start:end]]
+            print("Data is on device:", x_train.device)
             y_train = crypten.cryptensor(y_one_hot, requires_grad=True)
 
             # perform forward pass:

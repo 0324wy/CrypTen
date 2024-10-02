@@ -26,12 +26,12 @@ import argparse
 import logging
 import os
 
-from deeplearning.projects.crypten.examples.multiprocess_launcher import (
+from examples.multiprocess_launcher import (
     MultiProcessLauncher,
 )
 
 # pyre-fixme[21]: Could not find module `mpc_imagenet`.
-from mpc_imagenet import run_experiment  # @manual
+from mpc_mnist import run_experiment  # @manual
 
 
 # input arguments:
@@ -50,15 +50,15 @@ parser.add_argument(
 )
 parser.add_argument(
     "--imagenet_folder",
-    default=None,
+    default="/home/0324wy/mnist",
     type=str,
     help="folder containing the ImageNet dataset",
 )
 parser.add_argument(
     "--tensorboard_folder",
-    default="/tmp",
+    default="/home/0324wy/mnist",
     type=str,
-    help="folder in which tensorboard performs logging (default: /tmp)",
+    help="folder in which tensorboard performs logging (default: /home/0324wy/mnist)",
 )
 parser.add_argument(
     "--num_samples",
@@ -83,7 +83,7 @@ def _run_experiment(args):
         rank = os.environ["RANK"]
     logging.getLogger().setLevel(level)
 
-    tensorboard_folder = "/tmp/mpc_imagenet/" + rank
+    tensorboard_folder = "/home/0324wy/mnist/mpc_imagenet/" + rank
     os.makedirs(tensorboard_folder, exist_ok=True)
     run_experiment(
         args.model,

@@ -46,7 +46,7 @@ def _get_norm_mnist(dir, reduced=None, binary=False):
 
 
 def split_features(
-    split=0.5, dir="/tmp", party1="alice", party2="bob", reduced=None, binary=False
+    split=0.5, dir="/home/0324wy/mnist", party1="alice", party2="bob", reduced=None, binary=False
 ):
     """Splits features between Party 1 and Party 2"""
     mnist_norm, mnist_labels = _get_norm_mnist(dir, reduced, binary)
@@ -70,7 +70,7 @@ def split_features(
 
 
 def split_observations(
-    split=0.5, dir="/tmp", party1="alice", party2="bob", reduced=None, binary=False
+    split=0.5, dir="/home/0324wy/mnist", party1="alice", party2="bob", reduced=None, binary=False
 ):
     """Splits observations between Party 1 and Party 2"""
     mnist_norm, mnist_labels = _get_norm_mnist(dir, reduced, binary)
@@ -103,7 +103,7 @@ def split_observations(
 
 
 def split_features_v_labels(
-    dir="/tmp", party1="alice", party2="bob", reduced=None, binary=False
+    dir="/home/0324wy/mnist", party1="alice", party2="bob", reduced=None, binary=False
 ):
     """Gives Party 1 features and Party 2 labels"""
     mnist_norm, mnist_labels = _get_norm_mnist(dir, reduced, binary)
@@ -117,7 +117,7 @@ def split_features_v_labels(
 
 
 def split_train_v_test(
-    dir="/tmp", party1="alice", party2="bob", reduced=None, binary=False
+    dir="/home/0324wy/mnist", party1="alice", party2="bob", reduced=None, binary=False
 ):
     """Gives Party 1 training data and Party 2 the test data"""
     mnist_norm, mnist_labels = _get_norm_mnist(dir, reduced, binary)
@@ -140,7 +140,7 @@ def main():
     parser.add_argument("--ratio", type=float, default=0.72)
     parser.add_argument("--name_party1", type=str, default="alice")
     parser.add_argument("--name_party2", type=str, default="bob")
-    parser.add_argument("--dest", type=str, default="/tmp")
+    parser.add_argument("--dest", type=str, default="/home/0324wy/mnist")
     parser.add_argument("--reduced", type=int, default=None)
     parser.add_argument("--binary", action="store_true")
     args = parser.parse_args()
